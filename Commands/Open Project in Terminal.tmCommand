@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby
+
+def terminal_script(dir)
+  cmd = "cd #{dir}; clear; pwd"
+
+  return &lt;&lt;-APPLESCRIPT
+  	tell application "Terminal"
+		activate
+		do script "#{cmd}"
+	
+		set settingsSet to ""
+		repeat with s from 1 to (count of settings sets)
+			set settingsSet to settings set s
+			if name of settingsSet is "Development" then
+				exit repeat
+			end if
+		end repeat
+	
+		set custom title of window frontmost to "#{ENV['TM_PROJECT_NAME']}"
+		set current settings of window 1 to settingsSet
+	end tell
+APPLESCRIPT
+end
+
+if dir = ENV['TM_PROJECT_DIRECTORY']
+  script = terminal_script(dir)
+  open("|/usr/bin/osascript", "w") { |io| io &lt;&lt; script }
+end</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^~T</string>
+	<key>name</key>
+	<string>Open Project in Terminal</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>uuid</key>
+	<string>9E97DDE6-4284-48E2-9D26-203F2B94AC26</string>
+</dict>
+</plist>

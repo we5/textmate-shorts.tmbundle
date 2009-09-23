@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>we5 | TextMate Shorts</string>
+  <key>ordering</key>
+  <array>
+    <string>9E97DDE6-4284-48E2-9D26-203F2B94AC26</string>
+    <string>E8BF2978-0555-4695-AC8C-6FE6E5C9C15D</string>
+    <string>AF8AD64D-E644-44E7-959E-F7ADA2D3A3CA</string>
+  </array>
+  <key>uuid</key>
+  <string>2D06268C-5F64-4457-8B9E-12AECC47EA75</string>
+</dict>
+</plist>
